@@ -1,8 +1,12 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+.demo-layout-waterfall .mdl-layout__header-row .mdl-navigation__link:last-of-type  {
+  padding-right: 0;
 }
 
-a {
-  color: #00B7FF;
+.mdl-navigation > .fb_iframe_widget {
+  padding: 10px 0px 10px 40px;
+  //padding-left: 40px;
+}
+
+.mdl-layout__drawer a.mdl-layout-title {
+  padding-top: 20px;
 }
