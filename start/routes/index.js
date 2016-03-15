@@ -1,4 +1,6 @@
 var express = require('express');
+var rdb = require('../lib/rethink');
+var auth = require('../lib/auth');
 var router = express.Router();
 
 /* GET home page. */
@@ -8,18 +10,14 @@ router.get('/', function(req, res, next) {
 
 /* GET Hello World page. */
 router.get('/helloworld', function(req, res) {
-    res.render('helloworld', { title: 'Hello, World!' });
+  res.render('helloworld', { title: 'Hello, World!' });
 });
 
-/* GET Userlist page. */
-router.get('/userlist', function(req, res) {
-    var db = req.db;
-    var collection = db.get('usercollection');
-    collection.find({},{},function(e,docs){
-        res.render('userlist', {
-            "userlist" : docs
-        });
-    });
+router.get('/userlist', auth.authorize, function (request, response) {
+  rdb.findAll('users')
+  .then(function (users) {
+    response.json(users);
+  });
 });
 
 module.exports = router;
