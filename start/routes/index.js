@@ -13,6 +13,11 @@ router.get('/helloworld', function(req, res) {
   res.render('helloworld', { title: 'Hello, World!' });
 });
 
+/* GET Hello World page. */
+router.get('/facebook', function(req, res) {
+  res.render('facebook', { title: 'Facebook Login!' });
+});
+
 router.get('/userlist', auth.authorize, function (request, response) {
   rdb.findAll('users')
   .then(function (users) {
