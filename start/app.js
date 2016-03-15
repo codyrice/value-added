@@ -20,6 +20,12 @@ var login = require('./routes/login')
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
+// stylesheet setup
+app.use("/stylesheets", express.static(__dirname + "/public/stylesheets"));
+
+// javascript setup
+app.use("/javascripts", express.static(__dirname + "/public/javascripts"));
+
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
