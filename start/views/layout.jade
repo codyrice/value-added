@@ -3,6 +3,45 @@ html
   head
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='https://code.getmdl.io/1.1.2/material.indigo-blue.min.css')
+    link(rel='stylesheet', href='https://fonts.googleapis.com/icon?family=Material+Icons')
+    script(defer src='https://code.getmdl.io/1.1.2/material.min.js')
     script(src='/javascripts/fblogin.js')
   body
-    block content
+    // Creating header
+    div.mdl-layout.mdl-js-layout.mdl-layout--fixed-header
+      header.mdl-layout__header
+        // Top row, always visible
+        div.mdl-layout__header-row
+          span.mdl-layout-title.mdl-layout--large-screen-only #[a.mdl-layout-title.mdl-navigation__link(href='/') Valuable Support]
+          div.mdl-layout-spacer
+          <fb:login-button class="mdl-textfield--align-center mdl-layout--large-screen-only" scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
+          div.mdl-layout-spacer
+          div.mdl-textfield.mdl-js-textfield.mdl-textfield--expandable.mdl-textfield--floating-label.mdl-textfield--align-right
+            label(for='waterfall-exp',class='mdl-button mdl-js-button mdl-button--icon')
+              i.material-icons search
+            div.mdl-textfield__expandable-holder
+              input(type='text',id='waterfall-exp',name='sample',placeholder='sample',class='mdl-textfield__input')
+      // Drawer navigation
+      div.mdl-layout__drawer
+        span.mdl-layout-title #[a.mdl-layout-title.mdl-navigation__link(href='/') Valuable Support]
+        nav.mdl-navigation
+          <fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
+          a(class='mdl-navigation__link', href='google.com') Link
+          a(class='mdl-navigation__link', href='google.com') Link
+          a(class='mdl-navigation__link', href='google.com') Link
+
+
+      // Adding content
+      main.mdl-layout__content
+        div.page-content
+          block content
+
+      // Creating footer
+      footer.mdl-mini-footer
+        div.mdl-mini-footer__left-section
+          div.mdl-logo
+        div.mdl-mini-footer__right-section
+          ul.mdl-mini-footer__link-list
+            li #[a(href='mailto:cody.rice@gmail.com') Help]
+            li #[a(href='http://devincodyrice.com') About]
