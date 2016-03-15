@@ -1,18 +1,40 @@
 extends layout
 
 block content
+  script(src='/javascripts/fblogin.js')
 
   div.mdl-tabs.mdl-js-tabs.mdl-js-ripple-effect
     div.mdl-tabs__tab-bar
-      a(class='mdl-tabs__tab is-active', href='#tab1') Tab One
-      a(class='mdl-tabs__tab', href='#tab2') Tab Two
+      a(class='mdl-tabs__tab is-active', href='#shared_value') Shared Value
+      a(class='mdl-tabs__tab', href='#create_value') Create Value
       a(class='mdl-tabs__tab', href='#tab3') Tab Three
 
-    div#tab1.mdl-tabs__panel.is-active
-      p First tab's content.
+    div#shared_value.mdl-tabs__panel.is-active
+      div.mdl-grid
+        div.mdl-cell.mdl-cell--6-col.mdl-cell--4-col-phone.mdl-cell--3-offset-desktop.mdl-cell--1-offset-tablet
+          div.demo-card-wide.mdl-card.mdl-shadow--3dp
+            div.mdl-card__title
+              h2.mdl-card__title-text Welcome
+            div.mdl-card__supporting-text
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Mauris sagittis pellentesque lacus eleifend lacinia...
+            div.mdl-card__actions.mdl-card--border
+              a(class='mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect') Get Started
+            div.mdl-card__menu
+              button.mdl-button.mdl-button--icon.mdl-js-button.mdl-js-ripple-effect
+                i.material-icons share
 
-    div#tab2.mdl-tabs__panel
-      p Second tab's content.
+    div#create_value.mdl-tabs__panel
+      div.mdl-grid
+        div.mdl-cell.mdl-cell--6-col.mdl-cell--4-col-phone.mdl-cell--3-offset-desktop.mdl-cell--1-offset-tablet
+          form(action='#')
+            div.mdl-cell.mdl-cell--6-col.mdl-cell--5-col-tablet.mdl-cell--4-col-phone.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+              input(type='text',id='friend_name',name='friend_name',class='mdl-textfield__input')
+              label(class='mdl-textfield__label') To:
+            div.mdl-cell.mdl-cell--12-col.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+              textarea(class='mdl-textfield__input',type='text',rows='3',id='message')
+              label(class='mdl-textfield__label',for='message') Message...
+            button(class='mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect') Send
 
     div#tab3.mdl-tabs__panel
       p Third tab's content.
