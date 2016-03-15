@@ -10,3 +10,7 @@
 .mdl-layout__drawer a.mdl-layout-title {
   padding-top: 20px;
 }
+
+#shared_value .demo-card-wide.mdl-card {
+  width: 100%;
+}
