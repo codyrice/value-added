@@ -8,11 +8,6 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Valuable Support' });
 });
 
-/* GET Hello World page. */
-router.get('/helloworld', function(req, res) {
-  res.render('helloworld', { title: 'Hello, World!' });
-});
-
 router.get('/userlist', auth.authorize, function (request, response) {
   rdb.findAll('users')
   .then(function (users) {
